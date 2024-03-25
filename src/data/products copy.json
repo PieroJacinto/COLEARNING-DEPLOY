@@ -1,0 +1,90 @@
+[
+    {
+        "id": 1,
+        "name": "Base de maquillaje 1",
+        "description": "descripcion1",
+        "price": 9.99,
+        "discount": 0,
+        "image": "base-1.jpg",
+        "stock": 1,
+        "category": "bases",
+        "colors": "rosa"
+    },
+    {
+        "id": 2,
+        "name": "Delineador de ojos 1",
+        "description": "descripcion2",
+        "price": 5.99,
+        "discount": 0,
+        "image": "delineador-1.jpg",
+        "stock": 20,
+        "category": "bases",
+        "colors": "rosa"
+    },
+    {
+        "id": 3,
+        "name": "Lápiz de labios 1",
+        "description": "descripcion3",
+        "price": 10.99,
+        "discount": 0,
+        "image": "labial-1.jpg",
+        "stock": 30,
+        "category": "bases",
+        "colors": "rosa"
+    },
+    {
+        "id": 4,
+        "name": "Rubor en polvo",
+        "description": "descripcion4",
+        "price": 7.99,
+        "discount": 0,
+        "image": "rubor-1.jpg",
+        "stock": 50,
+        "category": "bases",
+        "colors": "rosa"
+    },
+    {
+        "id": 5,
+        "name": "Delineador de ojos 2",
+        "description": "descripcion5",
+        "price": 11.99,
+        "discount": 20,
+        "image": "delineador-2.jpg",
+        "stock": 20,
+        "category": "bases",
+        "colors": "rosa"
+    },
+    {
+        "id": 6,
+        "name": "Base de maquillaje 2",
+        "description": "descripcion6",
+        "price": 6.99,
+        "discount": 10,
+        "image": "base-2.jpg",
+        "stock": 20,
+        "category": "bases",
+        "colors": "rosa"
+    },
+    {
+        "id": 7,
+        "name": "Lápiz de labios 2",
+        "description": "descripcion7",
+        "price": 9.99,
+        "discount": 5,
+        "image": "labial-2.jpg",
+        "stock": 20,
+        "category": "bases",
+        "colors": "rosa"
+    },
+    {
+        "id": 8,
+        "name": "Paleta de iluminador y rubor",
+        "description": "descripcion8",
+        "price": 15.99,
+        "discount": 20,
+        "image": "rubor-2.jpg",
+        "stock": 20,
+        "category": "bases",
+        "colors": "rosa"
+    }
+]

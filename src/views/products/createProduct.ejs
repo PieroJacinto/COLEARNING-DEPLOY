@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- head -->
+<%- include('../partials/head') %>
+    <!-- head -->
+
+    <body>
+        <!-- header -->
+        <%- include('../partials/header') %>
+            <!-- header -->
+
+            <main>
+                <div class="section-tittle">
+                    <h2>Crear Producto</h2>
+                </div>
+                <%- include('../partials/formProduct', { method:"POST", path:'/products', product:null}) %>
+            </main>
+            <!-- footer -->
+            <%- include('../partials/footer') %>
+                <!-- footer -->
+
+                <script type="text/javascript" src="/js/fe-productos.js"></script>
+    </body>
+
+</html>

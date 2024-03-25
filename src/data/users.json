@@ -1,0 +1,203 @@
+[
+  {
+    "id": 1,
+    "first_name": "Maximiliano",
+    "last_name": "Sánchez",
+    "email": "maxiSanchez@gmail.com",
+    "password": "$2a$10$yzMl5WNiUQVNODdVPjxAoO5cmQ6bO1BA/lFtTjxbYxI64iVWwjbt6",
+    "category": "operador",
+    "state": 1,
+    "address": "Av Siempreviva 742",
+    "image": "avatar-1.png"
+  },
+  {
+    "id": 2,
+    "first_name": "Isabella",
+    "last_name": "Pérez",
+    "email": "kbertwistle1@nytimes.com",
+    "password": "aO5\\Zc_upRa",
+    "state": 1,
+    "category": "operador",
+    "image": "avatar5"
+  },
+  {
+    "id": 3,
+    "first_name": "Agustín",
+    "last_name": "Núñez",
+    "email": "geasson2@bloglines.com",
+    "password": "aE7,9M\",Do`(M",
+    "state": 1,
+    "category": "cliente",
+    "image": "avatar4"
+  },
+  {
+    "id": 4,
+    "first_name": "Facundo",
+    "last_name": "Fernández",
+    "email": "tmalpas3@dropbox.com",
+    "password": "rR0+fC?B",
+    "state": 1,
+    "category": "empleado",
+    "image": "avatar4"
+  },
+  {
+    "id": 5,
+    "first_name": "Thiago",
+    "last_name": "Sánchez",
+    "email": "mjukubczak4@histats.com",
+    "password": "cM7)a0|YRbUi2Hj",
+    "state": 1,
+    "category": "gerente",
+    "image": "avatar4"
+  },
+  {
+    "id": 6,
+    "first_name": "Leonardo",
+    "last_name": "Núñez",
+    "email": "efairbourn5@fotki.com",
+    "password": "eE9(%Ly%",
+    "state": 1,
+    "category": "administrador",
+    "image": "avatar4"
+  },
+  {
+    "id": 7,
+    "first_name": "Isabel",
+    "last_name": "Díaz",
+    "email": "lmatasov6@dot.gov",
+    "password": "jW1,j+NO",
+    "state": 1,
+    "category": "gerente",
+    "image": "avatar2"
+  },
+  {
+    "id": 8,
+    "first_name": "Santino",
+    "last_name": "Giménez",
+    "email": "aspare7@rediff.com",
+    "password": "vB2,Bo|<",
+    "state": 1,
+    "category": "empleado",
+    "image": "avatar1"
+  },
+  {
+    "id": 9,
+    "first_name": "Agustina",
+    "last_name": "Ramos",
+    "email": "aburt8@tripadvisor.com",
+    "password": "iV7_xO9F9Hmv.k3k",
+    "state": 1,
+    "category": "empleado",
+    "image": "avatar2"
+  },
+  {
+    "id": 10,
+    "first_name": "Delfina",
+    "last_name": "Núñez",
+    "email": "cangove9@rediff.com",
+    "password": "aU3*iR~}",
+    "state": 1,
+    "category": "operador",
+    "image": "avatar5"
+  },
+  {
+    "id": 11,
+    "first_name": "Facundo",
+    "last_name": "Giménez",
+    "email": "lguesta@arstechnica.com",
+    "password": "qA4*jXo2J&IWp@X",
+    "state": 1,
+    "category": "administrador",
+    "image": "avatar2"
+  },
+  {
+    "id": 12,
+    "first_name": "Felipe",
+    "last_name": "Gómez",
+    "email": "nborlesb@ning.com",
+    "password": "qX5{N515*(J8LWCf",
+    "state": 1,
+    "category": "gerente",
+    "image": "avatar1"
+  },
+  {
+    "id": 13,
+    "first_name": "Mariano",
+    "last_name": "Torres",
+    "email": "bantonsenc@si.edu",
+    "password": "kW8.sDI#dyU",
+    "state": 1,
+    "category": "administrador",
+    "image": "avatar2"
+  },
+  {
+    "id": 14,
+    "first_name": "Juan",
+    "last_name": "Suárez",
+    "email": "sbownesd@spiegel.de",
+    "password": "pS9?xqnB=Jk<Cq",
+    "state": 1,
+    "category": "gerente",
+    "image": "avatar1"
+  },
+  {
+    "id": 15,
+    "first_name": "Iván",
+    "last_name": "Cabrera",
+    "email": "jdriverse@goo.gl",
+    "password": "cX4\\wyjk1$=\"Q*J",
+    "state": 1,
+    "category": "operador",
+    "image": "avatar3"
+  },
+  {
+    "id": 16,
+    "first_name": "Bautista",
+    "last_name": "Rodríguez",
+    "email": "nrollf@odnoklassniki.ru",
+    "password": "oZ2!dv?2c'y",
+    "state": 1,
+    "category": "cliente",
+    "image": "avatar5"
+  },
+  {
+    "id": 17,
+    "first_name": "Santiago",
+    "last_name": "Giménez",
+    "email": "cmcgenng@issuu.com",
+    "password": "nL7(~l5cT",
+    "state": 1,
+    "category": "administrador",
+    "image": "avatar5"
+  },
+  {
+    "id": 18,
+    "first_name": "Martín",
+    "last_name": "Giménez",
+    "email": "acarrolh@technorati.com",
+    "password": "nL3'U>6NQ",
+    "state": 1,
+    "category": "administrador",
+    "image": "avatar3"
+  },
+  {
+    "id": 19,
+    "first_name": "Catalina",
+    "last_name": "Silva",
+    "email": "pmccoskeri@techcrunch.com",
+    "password": "xH0\\i|'i0y)Py}E",
+    "state": 1,
+    "category": "gerente",
+    "image": "avatar5"
+  },
+  {
+    "id": 20,
+    "first_name": "Isabella",
+    "last_name": "Fernández",
+    "email": "msigmundj@creativecommons.org",
+    "password": "dL0/H?b.`tUgNfB'",
+    "state": 1,
+    "category": "empleado",
+    "image": "avatar4"
+  }
+]

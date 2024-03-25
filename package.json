@@ -1,0 +1,41 @@
+{
+  "name": "grupo_2_cosmica",
+  "version": "1.0.0",
+  "description": "- El objetivo de nuestro proyecto es crear un Marketplace que ofrezca productos de maquillaje, donde los usuarios puedan informarse y adquirir los mismos  \r ## Productos Ofrecidos\r - Bases de maquillaje, rubores, delineadores y lapices de labios.\r - Los productos ofrecidos serán acotados en un principio, dejando lugar a la escalabilidad del proyecto.\r ## Público al que esta dirigido\r - El proyecto está dirigido a todos aquellos usuarios que deseen adquirir maquillaje de calidad, a un precio competitivo y contar con toda la informacion necesaria para poder hacer una compra inteligente. \r - Tambien esta dirigido a profesionales que utilizan maquillaje como materia prima de su trabajo.\r ## Páginas web similares\r - Farmacity : https://www.farmacity.com\r - Parfumerie : https://www.parfumerie.com.ar\r - Sugar : https://sugarbrush.com.ar\r - Loreal : https://www.lorealparis.com.ar\r - Sephora : https://www.sephora.com/\r ## Manual de Marca\r - Nombre del sitio: Cosmica\r - Logo:\r   ![isotipo_cosmica](https://github.com/Florsecco/grupo_2_cosmica/assets/89713801/68d11a35-21b9-4a5d-8793-5ec35bd233d2)",
+  "main": "app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "NODE_ENV=development nodemon src/app.js",
+    "prod": "NODE_ENV=production nodemon src/app.js",
+    "test": "NODE_ENV=testing nodemon src/app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "2.4.3",
+    "bootstrap": "^5.3.3",
+    "cookie-parser": "1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.2",
+    "ejs": "3.1.9",
+    "express": "4.18.2",
+    "express-session": "1.17.3",
+    "express-validator": "7.0.1",
+    "method-override": "3.0.0",
+    "morgan": "1.10.0",
+    "multer": "1.4.5-lts.1",
+    "mysql2": "3.7.1",
+    "nodemon": "3.0.1",
+    "sequelize": "6.35.2"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "*.json",
+      "public/javascripts/*.js"
+    ]
+  },
+  "devDependencies": {
+    "sequelize-cli": "6.6.2"
+  }
+}

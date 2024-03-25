@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- head -->
+
+  <%- include('../partials/head') %>
+
+  <!-- head -->
+  <body>
+    <!-- header -->
+    <%- include('../partials/header') %>
+    <!-- header -->
+    <div class="section-tittle">
+      <h2>Mi cuenta</h2>
+    </div>
+    <section class="main-section">
+      <h3 class="title-profile">Informacion de la cuenta</h3>
+      <div class="profile">
+        <img src="/img/users/<%= user.image %>" alt="img-profile" />
+        <div class="profile-container">
+          <h4>Nombre</h4>
+          <p><%= user.first_name %> <%= user.last_name %></p>
+          <h4>Correo</h4>
+          <p><%= user.email %></p>
+          <h4>Mis direcciones</h4>
+          <p><%= user.address %></p>
+          <a href="/users/edit"><h6 class="edit-profile">Editar</h6></a>
+          <h4>Mis pedidos</h4>
+          <br />
+          <h4>Mis favoritos</h4>
+          <br />
+          <div class="logout-flex">
+            <div>
+              <a href="/users/logout"
+                ><button class="button-profile">Cerrar sesión</button></a
+              >
+            </div>
+           
+              <form action="/users/?_method=DELETE" method="POST" >
+                <button type="submit" class="button-profile">
+                  Eliminar cuenta
+                </button>
+              </form>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- footer -->
+    <%- include('../partials/footer') %>
+    <!-- footer -->
+  </body>
+</html>

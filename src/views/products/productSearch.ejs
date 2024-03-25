@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- head  -->
+
+<%- include('../partials/head') %>
+
+  <!-- head  -->
+
+  <body>
+    <!-- header -->
+
+    <%- include('../partials/header') %>
+
+      <!-- header -->
+      <section>
+        <!--  <img class="banner-1000px" src="/img/cosmica_banner_500x2000.png" alt="banner" />
+        <img class="banner-360px" src="/img/cosmica_banner_600x1000.png" alt="banner" /> -->
+      </section>
+      <main>
+        <div class="section-tittle">
+          <h2>
+            Productos Buscados
+          </h2>
+        </div>
+        <section class="main-section">
+          <div class="featured-products">
+            <% if (products.length!=0) { %>
+                <% products.forEach(product=> { %>
+                  <article class="product">
+                    <a href="/products/<%=product.id%>">
+                      <img class="product-img" src="/img/products/<%=product.image%>" alt="<%=product.name%>" />
+                    </a>
+                    <div class="descrip">
+                      <i class="fa-solid fa-heart"></i></a>
+                      <p class="product-tittle">
+                        <%=product.name%>
+                      </p>
+                     
+                        <% if (product.discount) { %>
+                          <div class="product-full-price">
+                            <p class="product-dsc">
+                              <%=product.discount%>% OFF
+                            </p>
+                            <p class="product-price strikethrough price-old">$<%=toThousand(product.price)%>
+                            </p>
+                            <p class="product-price">
+                              $<%= toThousand(product.price - (product.price*product.discount/100)) %>
+                            </p>
+                          </div>
+                        <% } else { %>
+                          <p class="product-price"> $<%=toThousand(product.price)%>
+                          </p>
+                          <% } %>
+                    </div>
+                  </article>
+                  <% }) %>
+             
+            <% } else { %>
+                <p class="exists-none">No encontramos el producto que busca <i class="fa-regular fa-face-frown"></i></p>
+                <% } %>
+          </div>
+        </section>
+      </main>
+      <!-- footer -->
+      <%- include('../partials/footer') %>
+
+        <!-- footer -->
+  </body>
+
+</html>

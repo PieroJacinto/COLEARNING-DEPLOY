@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- head -->
+  <%- include('../partials/head') %>
+  <!-- head -->
+  <body>
+    <!-- header -->
+    <%- include('../partials/header') %>
+    <!-- header -->
+    <main>
+      <div class="section-tittle">
+        <h2>Creá tu cuenta</h2>
+      </div>
+      <form
+        action="/users/register"
+        method="POST"
+        class="form-register"
+        enctype="multipart/form-data"
+      >
+        <div>
+          <input type="text" name="first_name" placeholder="Nombre" value="<%= locals.old && old.first_name %>"/>
+          <% if (locals.errors && errors.first_name) { %>
+            <span style="color: red"> <%= errors.first_name.msg %> </span>
+          <% } %>
+          <span class="error"></span>
+        </div>
+        <div>
+          <input type="text" name="last_name" placeholder="Apellido" value="<%= locals.old && old.last_name %>"/>
+          <% if (locals.errors && errors.last_name) { %>
+            <span style="color: red"> <%= errors.last_name.msg %> </span>
+          <% } %>
+          <span class="error"></span>
+        </div>
+        <div>
+          <input type="email" name="email" placeholder="E-mail" value="<%= locals.old && old.email %>"/>
+          <% if (locals.errors && errors.email) { %>
+          <span style="color: red"> <%= errors.email.msg %> </span>
+          <% } %>
+          <span class="error"></span>
+        </div>
+        <div>
+          <div class="password">
+            <input type="password" name="password" placeholder="Contraseña" />
+            <i class="fa-solid fa-eye-slash"></i>
+          </div>
+          <% if (locals.errors && errors.password) { %>
+            <span style="color: red"> <%= errors.password.msg %> </span>
+            <% } %>
+            <span class="error"></span>
+        </div>
+        <div>
+          <div class="password">
+            <input
+              type="password"
+              name="confirm_password"
+              placeholder="Confirmar contraseña"
+            />
+            <i class="fa-solid fa-eye-slash"></i> 
+          </div>
+          <% if (locals.errors && errors.confirm_password) { %>
+            <span style="color: red"> <%= errors.confirm_password.msg %> </span>
+            <% } %>
+            <span class="error"></span>
+        </div>
+        <div>
+          <input type="text" name="address" placeholder="Direccion" value="<%= locals.old && old.address %>"/>
+          <% if (locals.errors && errors.address) { %>
+            <span style="color: red"> <%= errors.address.msg %> </span>
+          <% } %>
+          <span class="error"></span>
+        </div>
+        <div class="avatar">
+          <input type="file" name="avatar" />
+          <% if (locals.errors && errors.avatar) { %>
+            <span style="color: red"> <%= errors.avatar.msg %> </span>
+          <% } %>
+          <span class="error"></span>
+        </div>
+        <div>
+          <button type="submit" class="">Registrate</button>
+        </div>
+      </form>
+    </main>
+    <!-- footer -->
+    <%- include('../partials/footer') %>
+    <!-- footer -->
+    <script src="/js/register.js"></script>
+  </body>
+</html>

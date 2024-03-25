@@ -1,0 +1,84 @@
+<form enctype="multipart/form-data" class="form-create-product" id="form-create-product">
+    <div class="product-items">
+        <label>Nombre</label>
+        <input type="text" id="name" name="name" placeholder="Nombre Producto" <% if (product !=null) { %>
+        value="<%=product.name%>"
+            <% } %>>
+            <span class="error"></span>
+    </div> 
+ 
+    <div class="product-items">
+        <label>Descripción Corta</label>
+        <textarea name="description_short"
+            placeholder="Descripción del producto"><%if(product !=null){%><%=product.description_short%><%}%></textarea>
+            <span class="error"></span>
+    </div>
+    <div class="product-items">
+        <label>Descripción Larga</label>
+        <textarea name="description_long"
+            placeholder="Descripción del producto"><%if(product !=null){%><%=product.description_long%><%}%></textarea>
+            <span class="error"></span>
+    </div>
+    <div class="product-items">
+        <label>Ingredientes</label>
+        <textarea name="ingredients" placeholder="Ingredientes del producto"><%if(product !=null){%><%=product.ingredients%><%}%></textarea>
+            <span class="error"></span>
+    </div>
+    <div class="product-items">
+        <label>Precio</label>
+        <input type="number" name="price" placeholder="$12.34" value="<%if(product !=null){%><%=product.price%><%}%>">
+        <span class="error"></span>
+    </div>
+    <div class="product-items">
+        <label>Descuento</label>
+        <input type="number" name="discount" placeholder="20" value="<%if(product !=null){%><%=product.discount%><%}%>">
+        <span class="error"></span>
+    </div>
+    <div class="product-items">
+        <label>Imagen</label>
+        <input type="file" name="product" multiple>
+        <span class="error"></span>
+    </div>
+    <div class="product-items-block">
+        <label for="category">Categoría:</label>
+        <select name="category" id="category">
+            <option value="" disabled selected>Selecciona una categoría</option>
+            <% categories.forEach(category => { %>
+                <option value="<%=category.id%>" <% if (product != null && product.category_id==category.id ) { %>
+                    selected
+                    <% } %>><%=category.name%></option>
+            <% }); %>
+        </select>
+        <span class="error"></span>
+    </div>
+    <div class="product-items-block">
+        <p>Marca</p>
+        <% brands.forEach(brand => { %>
+           <label><input id="brand" type="radio" name="brand" value="<%=brand.id%>" <% if (product != null && product.brand_id==brand.id ) { %>
+            checked
+            <% } %>/> <%=brand.name%>
+        </label> 
+        <% }); %>
+        <span class="error"></span>
+    </div>
+    
+
+    
+    <div class="product-items-block-color">
+        <!-- <label for="colors">Colores:</label>
+        <select name="colors" id="colors" multiple>
+            
+        </select><br> -->
+        <fieldset>
+            <legend>Colores:</legend>
+            <!-- Aquí se agregarán dinámicamente los checkboxes de colores -->
+        </fieldset><br>
+        <div id="stockInputs">
+            <!-- Aquí se agregarán dinámicamente los campos de stock -->
+        </div>
+    </div>
+    <div class="col-12">
+        <button type="submit" class="buy-now-button">Guardar producto</button>
+        <span class="error"></span>
+    </div>
+</form>

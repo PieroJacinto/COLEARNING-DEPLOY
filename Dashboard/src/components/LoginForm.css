@@ -1,0 +1,85 @@
+/* .mainForm{
+  background-color: #ff5355;
+  background-image: linear-gradient(180deg, #ff5355 10%, #3e005b 100%);
+  background-size: cover;
+  justify-content: center;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  height: 50%;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  flex-direction: column;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+} */
+form.formCreate{
+  max-width: 500px;
+  display: flex;
+
+}
+form.formCreate button{
+  width: 200px;
+  text-align: center;
+}
+
+input {
+  border-radius: 2px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  padding: 1px;
+  border: 1px solid #3e005b;
+  text-align: center;
+  width: 360px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  height: 30px;
+  border-radius: 10px;
+}
+input[type=radio], input[type=checkbox]{
+  width: 20px;
+}
+.max{
+  width: 60px;
+  margin: 5px;
+}
+select{
+  width: 360px;
+}
+textarea{
+  border-radius: 2px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  padding: 1px;
+  border: 1px solid #3e005b;
+  text-align: center;
+  width: 360px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  height: 80px;
+  border-radius: 10px;
+}
+.loginButton{
+    background-color: #ff5355;
+    border: none;
+   border-radius: 50px;
+    padding: 3px;
+    font-size: 1.1em;
+    font-weight: 600;
+    width: 250px;
+    height: 30px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+label{
+    font-family: "Roboto", sans-serif;
+    color: #3e005b;
+    margin-top: 8px;
+}
+h1 {
+    color: #3e005b;
+    text-align: center;
+}

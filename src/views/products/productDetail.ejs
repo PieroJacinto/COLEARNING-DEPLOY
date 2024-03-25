@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- head -->
+<%- include('../partials/head') %>
+  <!-- head -->
+
+  <body>
+    <!-- header -->
+    <%- include('../partials/header') %>
+      <!-- header -->
+      <main>
+        <div class="section-tittle">
+          <h2>Detalle del producto</h2>
+        </div>
+        <div id="toast" class="toast"></div>
+        <section class="main-section-detail-product">
+          <div class="product-container">
+            <p class="product-container-tittle">
+              <%= product.name %>
+            </p>
+            <div class="product-small-container">
+              <img src="/img/products/<%= product.image %>" alt="<%=product.name%>" />
+              <div class="product-details">
+                <p>
+                  <%=product.description_short%>
+                </p>
+
+                <div class="display-flex-detail">
+                  <% if (product.discount> 0) { %>
+                    <p class="detaildsc">
+                      <%=product.discount%>% OFF
+                    </p>
+                    <div class="old-price">
+                      <p class="product-container-price strikethrough price-old">
+                        $<%= toThousand(product.price) %>
+                      </p>
+                    </div>
+                    <p class="product-container-price">
+                      $<%= toThousand(product.price - (product.price*product.discount/100)) %>
+                    </p>
+
+                    <% } else { %>
+                      <p class="product-container-price">
+                        $<%=toThousand(product.price) %>
+                          <% } %>
+                      </p>
+                </div>
+                <p>
+                  Cuotas sin interés con <i class="fa-regular fa-credit-card"></i>
+                </p>
+
+                <div>
+                  <a href="#" class="add-to-cart">Comprar</a>
+                </div>
+                <div>
+                  <a href="#" class="add-to-cart">Agregar al <i class="fa-solid fa-cart-shopping"></i></a>
+                </div>
+                <% if (locals.isLogged && locals.userLogged.profile_id==1) { %>
+                  <div class="display-flex-desktop">
+                    <div>
+                      <a href="/products/<%= product.id %>/edit" class="add-to-cart">Editar</a>
+                    </div>
+                    <div>
+                      <form action="/products/<%= product.id %>?_method=DELETE" method="POST">
+                        <button class="add-to-cart" type="submit">Eliminar</button>
+                      </form>
+                    </div>
+                  </div>
+                  <% } %>
+              </div>
+            </div>
+          </div>
+          <section class="details-container">
+            <div class="items-details-container">
+              <h3>Descripción <i class="fa-regular fa-square-caret-down"></i></h3>
+              <p>
+                <%=product.description_long%>
+              </p>
+            </div>
+            <div class="items-details-container">
+              <h3>Reseñas <i class="fa-regular fa-square-caret-down"></i></h3>
+              <div class="comments">
+                <% if (product.Reviews.length == 0) { %>
+                  <div class="comment" id="noComment">
+                    <p>Todavia no tiene ninguna reseña</p>
+                  </div>
+                <% } %>
+                <% product.Reviews.forEach(comment=> { %>
+                  <div class="comment">
+                    <p>
+                      <%= comment.comment%>
+                    </p>
+                    <p>
+                      Por: <%= comment.User.first_name %>
+                        <%= comment.User.last_name %>
+                    </p>
+                    <p>
+                      Fecha: <%= comment.created_at.toDateString() %>
+                    </p>
+                    <div class="rating">
+                      <% for( let i=0; i < comment.rating; i++ ) { %>
+                        <i class="fas fa-star"></i>
+                        <% } %>
+
+                          <% for( let i=comment.rating; i < 5; i++ ) { %>
+                            <i class="far fa-star"></i>
+                            <% } %>
+                    </div>
+                  </div>
+                  <% }); %>
+              </div>
+            </div>
+            <div class="items-details-container">
+              <h3>
+                Ingredientes <i class="fa-regular fa-square-caret-down"></i>
+              </h3>
+              <p>
+                <%=product.ingredients%>
+              </p>
+            </div>
+            <% if (locals.isLogged && locals.userLogged && !userHasCommented) { %>
+              <form id="commentForm">
+                <textarea id="commentText" placeholder="Escribe tu comentario"></textarea>
+                <div class="star-rating">
+                  <label for="rating1"></label>
+                  <label for="rating2"></label>
+                  <label for="rating3"></label>
+                  <label for="rating4"></label>
+                  <label for="rating5"></label>
+                </div>
+                <button id="btnComment" type="submit">Enviar comentario</button>
+              </form>
+              <% } %>
+          </section>
+          <h3>Articulos Relacionados</h3>
+          <div class="featured-products">
+            <% for (let i=0; i<4; i++){ %>
+              <article class="product">
+                <a href="/products/<%=products[i].id%>">
+                  <img class="product-img" src="/img/products/<%=products[i].image%>" alt="<%=products[i].name%>" />
+                </a>
+                <div class="descrip">
+                  <i class="fa-solid fa-heart"></i></a>
+                  <p class="product-tittle">
+                    <%=products[i].name%>
+                  </p>
+                  <div class="product-full-price">
+                    <p class="product-dsc">
+                      <%=products[i].discount%>% OFF
+                    </p>
+                    <p class="product-price strikethrough price-old">$<%=toThousand(products[i].price)%>
+                    </p>
+                    <p class="product-price">
+                      $<%= toThousand(products[i].price - (products[i].price*products[i].discount/100)) %>
+                    </p>
+                  </div>
+                </div>
+              </article>
+              <% } %>
+          </div>
+          </div>
+        </section>
+      </main>
+      <!-- footer -->
+      <%- include('../partials/footer') %>
+        <!-- footer -->
+        <script type="text/javascript" src="/js/comments.js"></script>
+  </body>
+
+</html>
