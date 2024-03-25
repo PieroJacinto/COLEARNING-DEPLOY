@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head', {title: "- editar Perfil", cssFile: "registro", cssHome: ""}) %>
+<body>
+    <main class="main-registro">
+        <div class="contenedor-form">
+            <img src="<%= foundUser.avatar %>" alt="avatar" class="logo">
+
+            <div class="form">
+                <div>
+                    <h1 class="title"> ¡Perfil! </h1>
+                    <p class="subtitle">Completá el formulario para modificar tu perfil</p>
+                </div>
+                
+                <form action="/users/editar-perfil/<%= foundUser.idUser %>?_method=PUT" method='POST' class="contenedor-registro" enctype="multipart/form-data">
+                    <span class="errorSubmit"></span>
+                    <div class="datos">      
+                        <div class="contenedor-datos1">
+                            <div class="caja-perfil">
+                                <label for="nombre" class="label">Nombre</label>
+                                <input type="text" name="nombre" placeholder="Nombre" value="<%=locals.oldData && oldData.nombre ? oldData.nombre : foundUser.firstName%>">
+                                <span class="error feedback-negativo"></span>
+                            </div>
+                            <% if(locals.errors && errors.nombre) { %>
+                                <span class="feedback-negativo"><%= errors.nombre.msg %></span>
+                            <% } %> 
+                            
+                            <div class="caja-perfil">
+                                <label for="fecha">Fecha de nacimiento</label>
+                                <input type="date" name="fecha" placeholder="DD/MM/AAAA" value="<%=locals.oldData && oldData.fecha ? oldData.fecha : foundUser.birthdate%>">
+                                <span class="error feedback-negativo"></span>
+                            </div>
+                            <% if(locals.errors && errors.fecha) { %>
+                                <span class="feedback-negativo"><%= errors.fecha.msg %></span>
+                            <% } %> 
+                        
+                            <div class="caja-perfil">
+                                <label for="nuevaContrasenia">Nueva contraseña</label>
+                                <input type="password" name="nuevaContrasenia" placeholder="••••••••••">
+                                <span class="error feedback-negativo"></span>
+                            </div>
+                            <% if(locals.errors && errors.nuevaContrasenia) { %>
+                                <span class="feedback-negativo"><%= errors.nuevaContrasenia.msg %></span>
+                            <% } %> 
+                        </div>
+                        
+                        <div class="contenedor-datos2">
+                            <div class="caja-perfil">
+                                <label for="apellido" class="label">Apellido</label>
+                                <input type="text" name="apellido" placeholder="Apellido" value="<%=locals.oldData && oldData.apellido ? oldData.apellido : foundUser.lastName%>">
+                                <span class="error feedback-negativo"></span>
+                            </div>
+                            <% if(locals.errors && errors.apellido) { %>
+                                <span class="feedback-negativo"><%= errors.apellido.msg %></span>
+                            <% } %> 
+            
+                            <div class="caja-perfil">
+                                <label for="contraseniaActual">Contraseña actual</label>
+                                <input type="password" name="contraseniaActual" placeholder="••••••••••">
+                                <span class="error feedback-negativo"></span>
+                            </div>
+                            <% if(locals.errors && errors.contraseniaActual) { %>
+                                <span class="feedback-negativo"><%= errors.contraseniaActual.msg %></span>
+                            <% } %>
+                            
+                            <div class="caja-perfil">
+                                <label for="confirmarContrasenia">Confirmar contraseña</label>
+                                <input type="password" name="confirmarContrasenia" placeholder="••••••••••">
+                                <span class="error feedback-negativo"></span>
+                            </div>
+                            <% if(locals.errors && errors.confirmarContrasenia) { %>
+                                <span class="feedback-negativo"><%= errors.confirmarContrasenia.msg %></span>
+                            <% } %> 
+                        </div>
+                       
+                    </div>
+
+                    <div class="contenedor-avatar">
+                        <label class="label-avatar" for="avatar">Foto de perfil</label>
+                        <input type="file" name="avatar">
+                        <span class="error feedback-negativo"></span>
+                        <% if(locals.errors && errors.avatar) { %>
+                            <span class="feedback-negativo"><%= errors.avatar.msg %></span>
+                        <% } %>
+                    </div>
+
+                    <div>
+                        <button type="submit" class="boton-registro">Guardar cambios</button>
+                    </div>
+                    <p class="mensaje-perfil">Cuidado! Al guardar los cambios se cerrará la sesión</p>
+                </form>
+              
+                <hr>
+            
+                <div class="pie-formulario">
+                    <a href="/help" class="ayuda"><i class="bi bi-question-circle"></i> ¿Necesitas ayuda?</a>
+                    <a href="/" class="volver-tienda">Volver a la tienda</i></a>
+                    <p class="copyright">Copyright © 2023/24</p>
+                </div>
+            </div>             
+        </div>
+    </main>
+    <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
+    <script src="/js/validaciones/editarPerfil.js"></script>
+</body>
+</html>

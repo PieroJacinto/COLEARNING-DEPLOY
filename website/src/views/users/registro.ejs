@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head', {title: "- Registrarse", cssFile: "registro", cssHome: ""}) %>
+<body>
+    <main class="main-registro">
+        <div class="contenedor-form">
+            <img src="/images/Logo.png" alt="Logo" class="logo">
+
+            <div class="form">
+                <div>
+                    <h1 class="title"> ¡Bienvenido! </h1>
+                    <p class="subtitle">Completá el formulario para crear tu cuenta</p>
+                    <span class="subtitle">* Estos campos son obligatorios</span>
+                </div>
+                
+                <form action="/users" method='POST' class="contenedor-registro" enctype="multipart/form-data">
+                    <span class="errorSubmit"></span>
+                    <div class="datos">      
+                        <div class="contenedor-datos1">
+                            <div class="caja-registro">
+                                <label for="nombre" class="label">Nombre*</label>
+                                <input type="text" name="nombre" placeholder="Nombre" value="<%= locals.oldData && oldData.nombre %>">
+                                <span class="error feedback-negativo"></span>
+                            </div>
+                            <% if(locals.errors && errors.nombre) { %>
+                                <span class="feedback-negativo"><%= errors.nombre.msg %></span>
+                            <% } %> 
+                            
+                            <div class="caja-registro">
+                                <label for="fecha">Fecha de nacimiento*</label>
+                                <input type="date" name="fecha" placeholder="DD/MM/AAAA" value="<%= locals.oldData && oldData.fecha %>">
+                                <span class="error feedback-negativo"></span>
+                            </div>
+                            <% if(locals.errors && errors.fecha) { %>
+                                <span class="feedback-negativo"><%= errors.fecha.msg %></span>
+                            <% } %> 
+                        
+                            <div class="caja-registro">
+                                <label for="contrasenia">Contraseña*</label>
+                                <input type="password" name="contrasenia" placeholder="••••••••••">
+                                <span class="error feedback-negativo"></span>
+                            </div>
+                            <% if(locals.errors && errors.contrasenia) { %>
+                                <span class="feedback-negativo"><%= errors.contrasenia.msg %></span>
+                            <% } %> 
+                        </div>
+                        
+                        <div class="contenedor-datos2">
+                            <div class="caja-registro">
+                                <label for="apellido" class="label">Apellido*</label>
+                                <input type="text" name="apellido" placeholder="Apellido" value="<%= locals.oldData && oldData.apellido %>">
+                                <span class="error feedback-negativo"></span>
+                            </div>
+                            <% if(locals.errors && errors.apellido) { %>
+                                <span class="feedback-negativo"><%= errors.apellido.msg %></span>
+                            <% } %> 
+            
+                            <div class="caja-registro">
+                                <label for="email" class="label">Correo*</label>
+                                <input type="text" name="email" placeholder="ejemplo@ejemplo.com" value="<%= locals.oldData && oldData.email %>">
+                                <span class="error feedback-negativo"></span>
+                            </div>
+                            <% if(locals.errors && errors.email) { %>
+                                <span class="feedback-negativo"><%= errors.email.msg %></span>
+                            <% } %> 
+                        
+                            <div class="caja-registro">
+                                <label for="confirmarContrasenia">Confirmar contraseña*</label>
+                                <input type="password" name="confirmarContrasenia" placeholder="••••••••••">
+                                <span class="error feedback-negativo"></span>
+                            </div>
+                            <% if(locals.errors && errors.confirmarContrasenia) { %>
+                                <span class="feedback-negativo"><%= errors.confirmarContrasenia.msg %></span>
+                            <% } %> 
+                        </div>
+                       
+                    </div>
+
+                    <div class="contenedor-avatar">
+                        <label class="label-avatar" for="avatar">Elige una foto de perfil (opcional)</label>
+                        <input type="file" name="avatar">
+                        <span class="error feedback-negativo"></span>
+                        <% if(locals.errors && errors.avatar) { %>
+                            <span class="feedback-negativo"><%= errors.avatar.msg %></span>
+                        <% } %>
+                    </div>
+
+                    <div>
+                        <button type="submit" class="boton-registro">Registrarme</button>
+                    </div>
+                        
+                </form>
+               
+                <div class="iniciar-sesion">
+                    <p>¿Ya tenés cuenta?</p>
+                    <a href="../users/login" class="link-aqui">Iniciá sesión aquí</a>
+                </div>
+                
+                <hr>
+            
+                <div class="pie-formulario">
+                    <a href="/help" class="ayuda"><i class="bi bi-question-circle"></i> ¿Necesitas ayuda?</a>
+                    <a href="/" class="volver-tienda">Volver a la tienda</i></a>
+                    <p class="copyright">Copyright © 2023/24</p>
+                </div>
+            </div>             
+        </div>
+    </main>
+    <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
+    <script src="/js/validaciones/registroUsuarios.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<header>
+    <div class="navbar-superior">
+
+        <div class="menu-y-logo">
+            <a id="menu-hamburguesa"><i class="bi bi-list"></i></a>
+            <a href="/"><img src="/images/Logo-letras.png" alt="Logo" id="logo-letras"></a>
+        </div>
+
+        <div id="contenidoHamburguesa" class="ocultar-menu-hamburguesa">
+            <ul>
+                <li><a href="../../products">Todos los productos</a></li>
+                <hr>
+                <% for (categoria of categorias) { %>
+                    <li><a href="../../products/<%= categoria.categoryName %>"><%= categoria.categoryName %></a></li>
+                    <hr>
+                <% } %>
+            </ul>
+        </div>
+        
+        <a href="/"><img src="/images/Logo.png" alt="Logo" class="logo-navbar"></a>
+        
+        <form id="formBusqueda" class="caja-busqueda" action="/search" method="GET">
+            <input type="text" id="barra-busqueda" name="keywords" placeholder="Buscar productos...">
+            <button class="boton-busqueda"> <i class="bi bi-search icono-busqueda"></i> </button>
+        </form>
+
+        <div class="iconos-movil">
+            <a id="icono-busqueda"><i class="bi bi-search icono-busqueda"></i></a>
+
+            <!--PARA MOVIL-->
+            <% if (locals.usuarioLog) { %>
+                <a href="../../users/perfil/<%= locals.usuarioLog.idUser %>" class="boton-cuenta-movil"><i class="bi bi-person-check"></i></a>
+            <% } else {%>
+                <a href="../../users/login" class="boton-cuenta-movil"><i class="bi bi-person"></i></a>
+            <% } %>
+
+            <% if (locals.usuarioLog && locals.usuarioLog.idRoleFK == 2) { %>
+                <a href="../../users/menu-admin" class="boton-cuenta-movil"><i class="bi bi-three-dots-vertical"></i></a>
+            <% } else{%>
+                <a href="../../products/carrito" id="boton-carrito-movil"><i class="bi bi-cart2"></i></a>
+            <% } %>
+        </div>
+
+        <!--PARA COMPUTADORA-->
+
+        <% if (locals.usuarioLog) { %>
+            <a href="../../users/perfil/<%= locals.usuarioLog.idUser %>" class="boton-cuenta"><i class="bi bi-person-check"></i> Hola <%= locals.usuarioLog.firstName.charAt(0).toUpperCase() + locals.usuarioLog.firstName.slice(1) %>! </a>
+        <% } else { %>
+            <a href="../../users/login" class="boton-cuenta"><i class="bi bi-person"></i> Ingresar</a>
+        <% } %>
+
+        <% if (locals.usuarioLog && locals.usuarioLog.idRoleFK == 2) {%>
+            <a href="../../users/menu-admin" class="boton-cuenta" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-person-lines-fill"></i> Menú Admin</a>
+        <% } else{%>
+            <a href="../../products/carrito" id="boton-carrito"><i class="bi bi-cart2"></i> Carrito</a>
+        <% } %>        
+    </div>

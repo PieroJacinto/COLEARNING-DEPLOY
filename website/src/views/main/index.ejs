@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head', {title: "- Home", cssFile: "styles", cssHome: ""}) %>
+  <body>
+    <!--  !HEADER  -->
+    <%- include('../partials/header.ejs') %>
+        <nav class="navbar-inferior">
+          <div class="swiper swiperNav">
+              <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                      <a href="../../products">Ver Todo</a>
+                  </div>
+                  <% for (categoria of categorias) { %>
+                      <div class="swiper-slide">
+                          <a href="../../products/<%= categoria.categoryName %>"> <%= categoria.categoryName%></a>
+                      </div>
+                  <% } %>
+              </div>
+          </div>
+      </nav>
+    </header>
+
+    <!-- !BANNER -->
+    <img src="/images/banner.jpg" alt="Banner" id="banner" />
+
+    <!-- !MAIN  -->
+    <main>
+      <!--  * CARRUSEL 1 -->
+      <section>
+        <h2 class="titulo-section">Promociones y descuentos</h2>
+        <!-- CONTENEDOR PRINCIPAL DEL SWIPER -->
+        <div class="swiper swiperPromociones">
+          <!-- CONTENEDOR ADICIONAL DEL SWIPER -->
+          <div id="swiperWraperPromociones" class="swiper-wrapper">
+            <!-- contenido del partial del carrusel -->
+            <% for (producto of productos) { %>
+                <% if (producto.stock > 0) { %>
+                    <% for (imagen of producto.images) { %>
+                        <% if (imagen.mainImage) { %>
+                            <%  imagenPrincipal = imagen.url
+                            break;
+                        } %>
+                    <% } %>
+                    <% if (producto.onDiscount) { %>
+                        <!-- se crea cada slide -->
+                        <div class="swiper-slide">
+                            <!-- se crea una tarjeta por cada articulo -->
+                           <% precioDescuento = calcularDescuento(producto.originalPrice, producto.discount)%>
+                            <article class="tarjeta-promocion-swiper">
+                              <div class="caja-imagen-descuento">
+                                <img src="<%= imagenPrincipal %>" alt="Imagen Producto" class="imagen-producto" />
+                                <p class="descuento"><%= producto.discount + '%' %><br />OFF</p>
+                              </div>
+                              <div class="caja-precio">
+                                <h3><%= producto.productName %></h3>
+                                <h4 class="precio-original"> <%= '$' + calcularMiles(producto.originalPrice) %> </h4>
+                                <h3><%= '$' + calcularMiles(precioDescuento) %></h3>
+                                <h5>Envío gratis <i class="bi bi-truck"></i></h5>
+                              </div>
+                              <% if (locals.usuarioLog && locals.usuarioLog.idRoleFK == 2) { %>
+                                <a href="../products/detalleProducto/<%= producto.idProduct %>" class="boton-compra">Ver</a>
+                              <% } else {%>
+                                <a href="../products/detalleProducto/<%= producto.idProduct %>" class="boton-compra">Comprar</a>
+                              <% } %>
+                            </article>
+                        </div>
+                    <% } %>
+                <% } %>
+            <% } %>
+          </div>
+
+          <!-- paginacion del swiper -->
+          <div class="swiper-pagination"></div>
+
+          <!-- botones de navegacion del swiper -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>   
+        <!-- * FIN CARRUSEL 1 -->
+      </section>
+      <!-- * FIN PRIMERA SECCION -->
+
+      <!--  * CARRUSEL 2  -->
+      <section>
+        <h2 class="titulo-section">Productos Destacados</h2>
+
+        <!-- CONTENEDOR PRINCIPAL DEL SWIPER -->
+        <div class="swiper swiperDestacado">
+          <!-- CONTENEDOR ADICIONAL DEL SWIPER -->
+          <div id="swiperWraperDestacado" class="swiper-wrapper">
+            <!-- contenido del partial del carrusel -->
+            <% for (producto of productos) { %>
+                <% if (producto.stock > 0) { %>
+                    <% for (imagen of producto.images) { %>
+                        <% if (imagen.mainImage) { %>
+                            <%  imagenPrincipal = imagen.url
+                                break;
+                        } %>
+                    <% } %>
+                    <% if (producto.mainProduct) { %>
+                        <!-- se crea cada slide -->
+                        <div class="swiper-slide">
+                            <!-- se crea una tarjeta por cada articulo -->
+                            <article class="tarjeta-articulo-swiper">
+                                <img src="<%= imagenPrincipal %>" alt="Imagen Producto" class="imagen-producto"/>
+                                <div class="caja-precio">
+                                    <h3><%= producto.productName %></h3>
+                                    <h4>$<%= calcularMiles(producto.originalPrice) %></h4>
+                                    <h5>Retiralo HOY! <i class="bi bi-box2-heart"></i></h5>
+                                </div>
+                                <% if (locals.usuarioLog && locals.usuarioLog.idRoleFK == 2) { %>
+                                    <a href="../products/detalleProducto/<%= producto.idProduct %>" class="boton-compra">Ver</a>
+                                <% } else {%>
+                                    <a href="../products/detalleProducto/<%= producto.idProduct %>" class="boton-compra">Comprar</a>
+                                <% } %>
+                            </article>
+                        </div>
+                    <% } %>
+                <% } %>
+            <% } %>
+          </div>
+
+          <!-- paginacion del swiper -->
+          <div class="swiper-pagination"></div>
+
+          <!-- botones de navegacion del swiper -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+        <!-- * FIN CARRUSEL 2 -->
+      </section>
+      <!-- * FIN SEGUNDA SECCION -->
+
+      <!-- * CONTACTO -->
+      <section>
+        <h2 class="titulo-section">Seguinos en nuestras redes</h2>
+        <div class="lista-redes">
+          <a href="https://www.facebook.com/?locale=es_LA" target="_blank"
+            ><i class="bi bi-facebook"></i
+          ></a>
+          <a href="https://www.instagram.com/" target="_blank"
+            ><i class="bi bi-instagram"></i
+          ></a>
+          <a href="https://twitter.com/" target="_blank"
+            ><i class="bi bi-twitter-x"></i
+          ></a>
+        </div>
+      </section>
+      <!-- * FIN TERCERA SECCION -->
+    </main>
+
+    <!--  !FOOTER   -->
+    <%- include('../partials/footer.ejs') %>
+    
+    <!--* SCRIPTS -->
+    <script src="/js/comportamientoMovil.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="/js/carruselNav.js"></script>
+    <script src="/js/carruselDestacados.js"></script>
+    <script src="/js/carruselPromociones.js"></script>
+  </body>
+</html>

@@ -1,0 +1,336 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Gabarito';
+}
+
+body {
+    background: radial-gradient(
+        circle,
+        rgba(133, 247, 255, 1) 0%,
+        rgba(158, 143, 255, 0.5) 100%
+    );
+}
+
+.main-producto {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+    min-height: 1900px;
+}
+
+.contenedor-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid 5px black;
+    border-radius: 60px;
+    width: 90%;
+    padding: 30px;
+    background-color: white;
+    position: relative;
+    
+}
+
+.logo {
+    position: absolute;
+    width: 120px;
+    top: -50px;
+    transition: transform 500ms;
+}
+
+.logo:hover {
+    transform: rotateY(360deg);
+}
+
+.form {
+    margin-top: 30px;
+    text-align: center;
+    width: 100%;
+    font-size: 15px;
+}
+
+.title {
+    text-align: center;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.contenedor-producto, .producto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+.contenedor-producto label, .producto label {
+    font-weight: bold;
+}
+
+.contenedor-datos {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.contenedor-datos label {
+    margin-top: 10px;
+}
+
+.feedback-negativo {
+    color: rgba(255, 0, 0, 0.8);
+    font-size: 11px;
+}
+
+.campos-obligatorios {
+    color: #9E8FFF;
+    font-size: 15px;
+}
+
+.error-submit {
+    color: rgba(255, 0, 0, 0.8);
+    margin-bottom: 10px;
+}
+.contenedor-datos input {
+    width: 100%;
+    border: none;
+    border-bottom: solid 1px black;
+    margin: 5px 0;
+}
+
+.contenedor-datos input[type="file"]{
+    border-bottom: none;
+}
+
+.contenedor-datos input[type="file"]:focus{
+    border-bottom: none;
+}
+
+.contenedor-datos input:focus {
+    outline: none;
+    border-bottom: solid 2px #9E8FFF;
+}
+
+.caracteristicas-del-producto span.error {
+    text-align: start;
+}
+
+.caja-caracteristicas span.error {
+    text-align: start;
+}
+
+.contenedor-datos select, .caja-caracteristicas select{
+    background-color: white;
+    border: solid 1px #222222;
+    border-radius: 5px;
+    padding: 1px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.caracteristicas-del-producto {
+    display: flex;
+    flex-direction: column;
+}
+
+.caja-caracteristicas select {
+    max-width: 100%;
+}
+
+.contenedor-datos select:focus, .caja-caracteristicas select:focus {
+    border: none;
+    outline: solid 2px #9e8fff;
+} 
+
+.texto-datos-imagenes {
+    margin-bottom: 0;
+    font-style: italic;
+}
+
+.caja-caracteristicas {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+}
+
+.caja-caracteristicas input {
+    width: 100%;
+    border: none;
+    border-bottom: solid 1px black;
+    margin: 5px 0;
+}
+
+.caja-caracteristicas input:focus {
+    outline: none;
+    border-bottom: solid 2px #9E8FFF;
+}
+
+.caja-caracteristicas textarea {
+    width: 100%;
+    height: 28px;
+    margin-top: 5px;
+    padding: 4px;
+}
+
+.caja-caracteristicas label {
+    margin-top: 15px;
+    font-weight: normal;
+}
+
+.textarea-label{
+    text-align: start;
+    margin: 15px 0 5px 0px;
+}
+
+textarea {
+    border-radius: 5px;
+    resize: none;
+    margin-bottom: 5px;
+}
+
+textarea:focus {
+    border: none;
+    outline: solid 2px #9e8fff;
+}
+
+.boton-submit {
+    border: none;
+    border-radius: 100px;
+    text-align: center;
+    background-color: #9e8fff;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    margin: 25px 0 15px 0;
+    width: 100%;
+}
+
+.boton-submit:hover {
+    background-color: black;
+    color: white;
+}
+
+.boton-submit:active {
+    color: black;
+    background-color: #85f7ff;
+}
+
+.footer-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.ayuda {
+    text-decoration: none;
+    color: #007fff;
+}
+
+.volver-tienda {
+    text-decoration: none;
+    color: #9e8fff;
+}
+
+.footer-form a:hover {
+    text-decoration: underline;
+}
+
+.copyright {
+    margin: 0;
+    color: gray;
+    font-style: italic;
+}
+
+.caja-edit{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.edit-text {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    min-width: 100%;
+}
+
+.edit-text span {
+    text-align: start;
+}
+
+label {
+    font-weight: bold;
+}
+
+
+@media (min-width: 480px) {
+    .contenedor-form {
+        width: 80%;
+    }
+
+    .footer-form {
+        font-size: 13px;
+    }
+}
+
+@media(min-width: 768px) {
+    .contenedor-form {
+        width: 70%;
+        padding: 30px 30px;
+    }
+
+    .contenedor-datos {
+        margin-right: 5px;
+    }
+
+    .feedback-negativo {
+        font-size: 12px;
+    }
+}
+
+@media (min-width: 992px) {
+    .contenedor-form {
+        width: 60%
+    }
+
+    .boton-submit {
+        width: 60%;
+    }
+
+    .contenedor-producto, .producto{
+        font-size: 17px;
+    }
+
+    .footer-form {
+        font-size: 15px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .contenedor-form {
+        max-width: 1000px;
+        margin: auto;
+    }
+   
+    .contenedor-datos {
+        margin-right: 8px;
+    }
+    
+    .boton-submit {
+        width: 70%;
+    }
+    .feedback-negativo {
+        font-size: 14px;
+    }
+
+}
+
+

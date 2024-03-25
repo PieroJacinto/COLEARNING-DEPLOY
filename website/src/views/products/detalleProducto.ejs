@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head', {title: "- Detalle Producto", cssFile: "detalleProducto", cssHome: "styles"}) %>
+
+<body>
+    <!--  !HEADER  -->
+    <%- include('../partials/header') %>
+    <nav class="navbar-inferior">
+        <div class="swiper swiperNav">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <a href="../../products">Ver Todo</a>
+                </div>
+                <% for (categoria of categorias) { %>
+                    <div class="swiper-slide">
+                        <a href="../../products/<%= categoria.categoryName %>"> <%= categoria.categoryName%></a>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </nav>
+  </header>
+    <!-- * FIN HEADER -->
+
+    <!-- ! MAIN  -->
+    <main id="main-detalle">
+
+        <div class="breadcrums">
+            <h4>Home</h4>
+            <i class="bi bi-chevron-right"></i>
+            <h4><%= producto.category.categoryName %></h4> 
+            <i class="bi bi-chevron-right"></i>
+            <h4><%= producto.brand.brandName %></h4>
+        </div>
+
+        <div class="info-principal">
+            
+            <div class="fotos-producto">
+                <div class="foto-producto-principal">
+                    <% for (imagen of producto.images) { %>
+                        <% if (imagen.mainImage) { %>
+                        <% imagenPrincipal = imagen.url
+                          break;
+                        } %>
+                    <% } %>
+                    <img src="<%= imagenPrincipal %>" class="foto-principal">
+                </div>
+
+                <div class="foto-producto-lateral">
+                <% for (imagen of producto.images) {%>
+                    <% if (!imagen.mainImage) { %>
+                        <% imagenExtra = imagen.url %>
+                        <img src="<%= imagenExtra %>" class="foto-lateral">
+                    <% } %>
+                <% } %>
+                </div>
+            </div>
+
+            <hr class="linea-imagen">
+
+            <div class="detalle-producto">
+                <h3><%= producto.productName %></h3>
+                <% if (producto.onDiscount) {%>
+                    <% precioDescuento = calcularDescuento(+producto.originalPrice, +producto.discount)%>
+                    <h4 class="precio-original"><%= "$" + calcularMiles(producto.originalPrice) %></h4>
+                    <h4><%= "$" + calcularMiles(precioDescuento) %></h4>
+                <% } else { %>
+                    <h4><%= "$" + calcularMiles(producto.originalPrice) %></h4>
+                <% } %>
+                <h5><a href="#">Ver los medios de pago</a></h5>
+                <p><i class="bi bi-shield-fill-check"></i> Garantia de 12 meses</p>
+                <% if (producto.stock > 0) {%>
+                    <p> <i class="bi bi-check2"></i> Stock disponible: <%= producto.stock %> unidades</p>
+                <% } else { %>
+                    <p> <i class="bi bi-x-lg"></i> Sin stock disponible</p>
+                <% } %>
+                
+                <p><i class="bi bi-truck"></i> Envios a todo el país</p>
+                <% if (!(locals.usuarioLog && locals.usuarioLog.idRoleFK == 2)) { %>
+                    <% if (producto.stock > 0) { %> 
+                        <div class="botones-detalle-producto">
+                            <a href="/products/carrito" class="boton-comprarAhora">Comprar ahora</a>
+                            <a href="#" class="boton-agregarCarrito">Agregar al carrito</a>
+                        </div>
+                    <% } %>
+                <% } %>
+                 
+                <% if (locals.usuarioLog && locals.usuarioLog.idRoleFK == 2) { %>
+                    <div class="form-detalle">
+                        <a href="/products/editarProducto/<%= producto.idProduct %>" class="boton-editar">Editar producto</a>
+                        <form action="/products/<%= producto.idProduct %>?_method=DELETE" method="POST" >
+                            <button type="submit" class="boton-borrar">Borrar producto</button>
+                        </form>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="caracteristicas-producto">
+            <h3>Características de <%= producto.productName %></h3>
+            <div>
+                <div class="caracteristicas-arriba">
+                    <p> <i class="icono bi bi-check-circle-fill"></i> <%= producto.features[0].feature %> </p>
+                    <p class="texto-derecha"> <i class="icono bi bi-check-circle-fill"></i> <%= producto.features[1].feature %> </p>
+                </div>
+                <div class="caracteristicas-abajo">
+                    <p class="descripcion-larga"> <i class="icono bi bi-check-circle-fill"></i> <%= producto.features[2].feature %> </p>
+                    <p class="texto-derecha"> <i class="icono bi bi-check-circle-fill"></i> <%= producto.features[3].feature %> </p>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="descripcion-producto">
+            <h2>Descripción</h2>
+            <% let parrafo = "" %>
+                <% for (letra of producto.description) { %>
+                    <% parrafo += letra %>
+                    <% if (letra == "\n") { %>
+                        <p> <%= parrafo %> </p> 
+                        <% parrafo = "" %>
+                    <% } %>    
+                <% } %>
+            <p> <%= parrafo %> </p>
+        </div>
+    </main>
+
+    <!--  !FOOTER   -->
+    <%- include('../partials/footer') %>
+    <!-- * FIN FOOTER -->
+    <script src="/js/comportamientoMovil.js"></script>
+    <script src="/js/alertaProducto.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="/js/carruselNav.js"></script>
+</body>
+</html>

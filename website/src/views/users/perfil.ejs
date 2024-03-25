@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head', {title: "- Perfil", cssFile: "perfil", cssHome: "styles"}) %>
+
+<body>
+    <!--  !HEADER  -->
+    <%- include('../partials/header') %>
+    <nav class="navbar-inferior">
+        <div class="swiper swiperNav">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <a href="../../products">Ver Todo</a>
+                </div>
+                <% for (categoria of categorias) { %>
+                    <div class="swiper-slide">
+                        <a href="../../products/<%= categoria.categoryName %>"> <%= categoria.categoryName%></a>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </nav>
+  </header>
+    <!-- * FIN HEADER -->
+
+    <!-- ! MAIN  -->
+    <main id="main-perfil">
+
+        <div class="info-principal">
+                <div class="foto-perfil">
+                    <img src="<%= user.avatar %>" >
+                </div>
+
+            <hr class="linea-imagen">
+
+            <div class="datos-usuario">
+                <h2><%= user.firstName.charAt(0).toUpperCase() + user.firstName.slice(1)  + ' ' + user.lastName.charAt(0).toUpperCase() + user.lastName.slice(1) %></h2>
+                <h3><i class="bi bi-envelope-at"></i> <%= user.email %></h3>
+                <h3><i class="bi bi-calendar3"></i> <%= user.birthdate %></h3>
+                <div class="botones-datos-usuario">
+                    <a href="/users/editar-perfil/<%= user.idUser %>" class="boton-editarPerfil">Editar Perfil</a>
+                    <a href="/users/logout" class="boton-cerrarSesion">Cerrar Sesión</a>
+                    <form action="/users/<%= user.idUser %>?_method=DELETE" method="POST" >
+                        <button type="submit" class="boton-borrarPerfil">Eliminar Usuario</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!--  !FOOTER   -->
+    <%- include('../partials/footer') %>
+    <!-- * FIN FOOTER -->
+    <script src="/js/comportamientoMovil.js"></script>
+    <script src="/js/alertaUsuario.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="/js/carruselNav.js"></script>
+</body>
+</html>

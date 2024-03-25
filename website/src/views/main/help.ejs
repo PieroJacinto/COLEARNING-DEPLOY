@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head', {title: "- About", cssFile: "styles", cssHome: ""}) %>
+  <body>
+    <!--  !HEADER  -->
+    <%- include('../partials/header.ejs') %>
+    <nav class="navbar-inferior">
+      <div class="swiper swiperNav">
+          <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                  <a href="../../products">Ver Todo</a>
+              </div>
+              <% for (categoria of categorias) { %>
+                  <div class="swiper-slide">
+                      <a href="../../products/<%= categoria.categoryName %>"> <%= categoria.categoryName%></a>
+                  </div>
+              <% } %>
+          </div>
+      </div>
+  </nav>
+</header>
+
+    <main id="main-help">
+      <h1>¿En qué podemos ayudarte?</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, tenetur aut maiores eos rem voluptate optio laudantium fugiat velit minus facere autem, culpa saepe esse. Expedita dolorum repudiandae ut ratione!
+      Asperiores molestiae nam dolore deleniti, magnam officia et cumque, aperiam voluptates atque libero reiciendis facere facilis sapiente. Eligendi distinctio fuga dolorem aspernatur dolores sed autem nemo vero architecto? Officiis, dolor?
+      Similique placeat illo dolore impedit doloribus eligendi odio hic in qui eos natus totam dicta architecto distinctio veniam dolores, inventore alias nesciunt aperiam maxime ut autem. In unde necessitatibus labore.
+      Ipsum laborum consequuntur sunt, officiis a, laudantium corrupti rerum pariatur voluptatibus facere consequatur optio quibusdam sed. Quam ipsum autem, dignissimos consectetur, ex maxime accusantium alias exercitationem dolorum, sit tenetur obcaecati.</p>
+
+      <p>Si quieres comunicarte con nosotros, <a href="mailto:support@innovatechshop.com">envíanos un mensaje</a></p>
+
+    </main>
+
+    <!--  !FOOTER   -->
+    <%- include('../partials/footer') %>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="/js/carruselNav.js"></script>
+  </body>
+</html>
